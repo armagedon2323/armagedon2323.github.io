@@ -304,20 +304,31 @@ body.tidio-open iframe[src*="tidio"] {
 <footer>© 2026 FitnessAI</footer>
 
 <script>
-window.tidioChatApi = window.tidioChatApi || {};
-window.tidioChatApi.on = window.tidioChatApi.on || function () {
-  (window.tidioChatApi.q = window.tidioChatApi.q || []).push(arguments);
-};
+document.addEventListener("DOMContentLoaded", function () {
 
-window.tidioChatApi.on("ready", function () {
-  console.log("✅ Tidio READY");
-
-  const launcher = document.getElementById("ai-bot-launcher");
-  if (launcher) {
-    launcher.addEventListener("click", function () {
-      window.tidioChatApi.open();
-    });
+  function waitForTidio(callback) {
+    if (window.tidioChatApi && window.tidioChatApi.open) {
+      callback();
+    } else {
+      setTimeout(() => waitForTidio(callback), 300);
+    }
   }
+
+  waitForTidio(function () {
+    console.log("Tidio ready");
+
+    // 🔥 disable default launcher
+    window.tidioChatApi.hide();
+
+    // ✅ open chat on click
+    document
+      .getElementById("ai-bot-launcher")
+      .addEventListener("click", function () {
+        window.tidioChatApi.show();
+        window.tidioChatApi.open();
+      });
+  });
+
 });
 </script>
 
