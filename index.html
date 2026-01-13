@@ -152,15 +152,6 @@ main {
   margin-bottom: 30px;
 }
 
-.cta button {
-  padding: 16px 36px;
-  border-radius: 999px;
-  border: none;
-  font-size: 18px;
-  font-weight: 600;
-  cursor: pointer;
-}
-
 /* FOOTER */
 footer {
   text-align: center;
@@ -168,28 +159,32 @@ footer {
   color: #94a3b8;
 }
 
-/* HIDE DEFAULT TIDIO UI (БЕЗ ДА СЕ СКРШИ) */
-#tidio-chat {
-  opacity: 0 !important;
-  pointer-events: none !important;
+/* 🔴 HIDE DEFAULT TIDIO UI COMPLETELY */
+#tidio-chat,
+#tidio-chat iframe,
+.tidio-chat-button {
+  display: none !important;
 }
 
-/* CUSTOM BOT IMAGE */
+/* 🟣 CUSTOM BOT BUTTON */
 #ai-bot-launcher {
   position: fixed;
-  bottom: 25px;
-  right: 25px;
+  bottom: 30px;
+  right: 30px;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
   cursor: pointer;
-  z-index: 99999;
+  z-index: 9999;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.35);
 }
 
 #ai-bot-launcher img {
-  width: 110px;
-  height: 110px;
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
   object-fit: cover;
   border: 4px solid #6366f1;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
 }
 </style>
 </head>
@@ -233,46 +228,33 @@ footer {
 <section id="products" class="products">
   <h2>Popular Products</h2>
   <div class="product-grid">
-    <div class="product-card">
-      Beginner Dumbbells
-      <span class="price">$49</span>
-    </div>
-    <div class="product-card">
-      Adjustable Dumbbells
-      <span class="price">$89</span>
-    </div>
-    <div class="product-card">
-      Advanced Set
-      <span class="price">$149</span>
-    </div>
+    <div class="product-card">Beginner Dumbbells <span class="price">$49</span></div>
+    <div class="product-card">Adjustable Dumbbells <span class="price">$89</span></div>
+    <div class="product-card">Advanced Set <span class="price">$149</span></div>
   </div>
-</section>
-
-<section class="cta">
-  <h2>Need help?</h2>
-  <p>Chat with our AI fitness assistant</p>
-  <button onclick="openChat()">Talk to AI</button>
 </section>
 </main>
 
 <footer>© 2026 FitnessAI</footer>
 
-<!-- TIDIO -->
+<!-- 🟢 TIDIO -->
 <script src="//code.tidio.co/rr9kewvy8kr8epfs8o87x2sn4fq9ubd0.js" async></script>
 
-<!-- CUSTOM BOT -->
+<!-- 🟢 CUSTOM BOT -->
 <div id="ai-bot-launcher">
-  <img src="bot-avatar.png" alt="AI Assistant">
+  <img src="https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Woman%20blonde/3D/woman_blonde_3d.png">
 </div>
 
 <script>
-function openChat() {
+(function waitForTidio() {
   if (window.tidioChatApi) {
-    window.tidioChatApi.open();
+    document.getElementById("ai-bot-launcher").onclick = function () {
+      window.tidioChatApi.open();
+    };
+  } else {
+    setTimeout(waitForTidio, 300);
   }
-}
-
-document.getElementById("ai-bot-launcher").addEventListener("click", openChat);
+})();
 </script>
 
 </body>
