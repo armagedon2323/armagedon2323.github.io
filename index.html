@@ -329,6 +329,13 @@ body.tidio-open iframe[src*="tidio"] {
   waitForTidio();
 })();
 </script>
-
+<script>
+function openChat() {
+  if (window.tidioChatApi) {
+    window.tidioChatApi.show();
+    window.tidioChatApi.open();
+  }
+}
+</script>
 </body>
 </html>
