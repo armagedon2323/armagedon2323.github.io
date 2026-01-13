@@ -3,85 +3,137 @@
 <head>
   <meta charset="UTF-8">
   <title>Fitness Equipment Store</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
-    body {
+    * {
+      box-sizing: border-box;
       margin: 0;
+      padding: 0;
       font-family: 'Inter', sans-serif;
-      background: linear-gradient(135deg, #0f172a, #1e293b);
-      color: #ffffff;
     }
 
+    body {
+      background: #0f172a;
+      color: #e5e7eb;
+      line-height: 1.6;
+    }
+
+    /* HERO SECTION */
     header {
+      min-height: 100vh;
+      background:
+        linear-gradient(to bottom right, rgba(15,23,42,0.9), rgba(15,23,42,0.6)),
+        url("fitness.jpg") center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       text-align: center;
-      padding: 80px 20px;
+      padding: 40px;
     }
 
     header h1 {
-      font-size: 48px;
-      margin-bottom: 15px;
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 20px;
     }
 
     header p {
-      font-size: 20px;
+      font-size: 1.25rem;
+      max-width: 600px;
+      margin: auto;
       color: #cbd5f5;
     }
 
+    .cta {
+      margin-top: 35px;
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 15px 36px;
+      border-radius: 40px;
+      border: none;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #6366f1, #4338ca);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 35px rgba(99,102,241,0.5);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid #6366f1;
+      color: #c7d2fe;
+    }
+
+    .btn-outline:hover {
+      background: #6366f1;
+      color: white;
+    }
+
+    /* MAIN */
     main {
-      padding: 60px 20px;
-      max-width: 1100px;
-      margin: auto;
+      padding: 90px 8%;
+      background: #020617;
     }
 
     .features {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-      margin-bottom: 80px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 35px;
     }
 
     .card {
-      background: linear-gradient(135deg, #1e293b, #334155);
+      background: linear-gradient(145deg, #020617, #020617);
+      border-radius: 22px;
       padding: 35px;
-      border-radius: 20px;
-      box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.55);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 40px 80px rgba(0,0,0,0.6);
+      transform: translateY(-12px);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.75);
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 16px;
+      margin-bottom: 22px;
     }
 
     .card h3 {
-      margin-top: 0;
       font-size: 22px;
-      color: #60a5fa;
+      margin-bottom: 10px;
+      color: #a5b4fc;
     }
 
-    section h2 {
-      font-size: 32px;
-      margin-bottom: 20px;
-    }
-
-    ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    ul li {
-      margin-bottom: 12px;
-      font-size: 18px;
+    .card p {
+      color: #cbd5f5;
     }
 
     footer {
       text-align: center;
-      padding: 30px;
+      padding: 40px;
+      font-size: 14px;
       background: #020617;
       color: #94a3b8;
-      font-size: 14px;
     }
   </style>
 </head>
@@ -89,42 +141,43 @@
 <body>
 
 <header>
-  <h1>Fitness Equipment Store</h1>
-  <p>Build strength. Train smarter. Delivered to your door.</p>
+  <div>
+    <h1>Train Smarter. Get Stronger.</h1>
+    <p>Premium fitness equipment for home and gym training. Fast delivery. Proven quality.</p>
+
+    <div class="cta">
+      <button class="btn btn-primary">Shop Now</button>
+      <button class="btn btn-outline">Chat with AI</button>
+    </div>
+  </div>
 </header>
 
 <main>
-
   <section class="features">
+
     <div class="card">
-      <h3>💪 Strength Training</h3>
-      <p>Premium dumbbells and adjustable sets for all levels.</p>
+      <img src="fitnessequipment.jpg" alt="Fitness equipment">
+      <h3>Strength Training</h3>
+      <p>Professional dumbbells and adjustable sets for progressive muscle growth.</p>
     </div>
 
     <div class="card">
-      <h3>🧘 Flexibility</h3>
-      <p>Yoga mats and resistance bands for mobility and recovery.</p>
+      <img src="homeworkout.jpg" alt="Home workout">
+      <h3>Home Workouts</h3>
+      <p>Train efficiently at home with compact, space-saving equipment.</p>
     </div>
 
     <div class="card">
-      <h3>🚚 Fast Delivery</h3>
-      <p>2–4 business days with tracking included.</p>
+      <img src="fitness.jpg" alt="Fast delivery">
+      <h3>Fast Delivery</h3>
+      <p>2–4 business days delivery with secure tracking on every order.</p>
     </div>
+
   </section>
-
-  <section>
-    <h2>Why Choose Us?</h2>
-    <ul>
-      <li>✔ Professional-grade equipment</li>
-      <li>✔ Home & gym solutions</li>
-      <li>✔ Secure ordering & fast shipping</li>
-    </ul>
-  </section>
-
 </main>
 
 <footer>
-  © 2026 Fitness Store. All rights reserved.
+  © 2026 Fitness Equipment Store • Built with AI
 </footer>
 
 </body>
