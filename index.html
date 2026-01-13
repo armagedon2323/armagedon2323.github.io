@@ -303,15 +303,6 @@ body.tidio-open iframe[src*="tidio"] {
 
 <footer>© 2026 FitnessAI</footer>
 
-<!-- TIDIO -->
-<script src="//code.tidio.co/rr9kewvy8kr8epfs8o87x2sn4fq9ubd0.js" async></script>
-
-<!-- CUSTOM BOT -->
-<div id="ai-bot-launcher">
-  <img src="bot-avatar.png" alt="Anna AI">
-  <span>Anna – AI Assistant</span>
-</div>
-
 <script>
 window.tidioChatApi = window.tidioChatApi || {};
 window.tidioChatApi.on = window.tidioChatApi.on || function () {
@@ -319,21 +310,16 @@ window.tidioChatApi.on = window.tidioChatApi.on || function () {
 };
 
 window.tidioChatApi.on("ready", function () {
-  console.log("✅ Tidio ready");
-});
+  console.log("✅ Tidio READY");
 
-function openChat() {
-  if (window.tidioChatApi && window.tidioChatApi.open) {
-    window.tidioChatApi.open();
-  }
-}
-
-document.addEventListener("DOMContentLoaded", function () {
   const launcher = document.getElementById("ai-bot-launcher");
   if (launcher) {
-    launcher.addEventListener("click", openChat);
+    launcher.addEventListener("click", function () {
+      window.tidioChatApi.open();
+    });
   }
 });
 </script>
+
 </body>
 </html>
