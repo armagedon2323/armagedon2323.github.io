@@ -190,6 +190,21 @@ footer {
   box-shadow: 0 20px 40px rgba(0,0,0,0.3);
   cursor: pointer;
   z-index: 9999;
+
+  /* 🔥 COMPLETELY HIDE TIDIO DEFAULT LAUNCHER */
+#tidio-chat-button,
+.tidio-chat-button,
+.tidio-chat-button__bubble,
+.tidio-chat-button__icon,
+.tidio-chat-button__text,
+.tidio-chat-button__label,
+.tidio-chat-button__content {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
 }
 
 #ai-bot-launcher img {
