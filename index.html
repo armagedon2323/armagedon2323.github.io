@@ -17,25 +17,52 @@
     }
 
     body {
-      background: #0f172a;
+      background: #020617;
       color: #e5e7eb;
       line-height: 1.6;
-
-      <nav class="navbar">
-  <div class="logo">FitnessAI</div>
-  <ul>
-    <li><a href="#features">Features</a></li>
-    <li><a href="#products">Products</a></li>
-    <li><a href="#chat">AI Assistant</a></li>
-  </ul>
-</nav>
     }
 
-    /* HERO SECTION */
-    header {
+    /* NAVBAR */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(2,6,23,0.85);
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    }
+
+    .navbar .logo {
+      font-weight: 800;
+      font-size: 22px;
+      color: #a5b4fc;
+    }
+
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+
+    .navbar a {
+      text-decoration: none;
+      font-weight: 600;
+      color: #e5e7eb;
+    }
+
+    .navbar a:hover {
+      color: #818cf8;
+    }
+
+    /* HERO */
+    .hero {
       min-height: 100vh;
       background:
-        linear-gradient(to bottom right, rgba(15,23,42,0.9), rgba(15,23,42,0.6)),
+        linear-gradient(to bottom right, rgba(2,6,23,0.85), rgba(2,6,23,0.6)),
         url("fitness.jpg") center/cover no-repeat;
       display: flex;
       align-items: center;
@@ -44,92 +71,70 @@
       padding: 40px;
     }
 
-    header h1 {
-      font-size: 3.5rem;
+    .hero h1 {
+      font-size: 56px;
       font-weight: 800;
       margin-bottom: 20px;
+      color: #e0e7ff;
     }
 
-    header p {
-      font-size: 1.25rem;
-      max-width: 600px;
-      margin: auto;
-      color: #cbd5f5;
-    }
-
-    .cta {
-      margin-top: 35px;
-      display: flex;
-      gap: 20px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      padding: 15px 36px;
-      border-radius: 40px;
-      border: none;
-      font-size: 16px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, #6366f1, #4338ca);
-      color: white;
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 15px 35px rgba(99,102,241,0.5);
-    }
-
-    .btn-outline {
-      background: transparent;
-      border: 2px solid #6366f1;
+    .hero p {
+      font-size: 20px;
+      max-width: 650px;
+      margin: 0 auto 35px;
       color: #c7d2fe;
     }
 
-    .btn-outline:hover {
-      background: #6366f1;
-      color: white;
+    .cta-btn {
+      display: inline-block;
+      padding: 16px 36px;
+      font-size: 18px;
+      font-weight: 600;
+      color: #020617;
+      background: linear-gradient(135deg, #38bdf8, #818cf8);
+      border-radius: 999px;
+      text-decoration: none;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .cta-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 40px rgba(56,189,248,0.4);
     }
 
     /* MAIN */
     main {
-      padding: 90px 8%;
-      background: #020617;
+      padding: 100px 8%;
     }
 
+    /* FEATURES */
     .features {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 35px;
+      max-width: 1200px;
+      margin: 0 auto 120px;
     }
-<section class="cta">
-  <h2>Ready to start training smarter?</h2>
-  <p>Let our AI assistant help you choose the perfect equipment.</p>
-  <button onclick="scrollToChat()">Talk to the AI Assistant</button>
-</section>
 
     .card {
-      background: linear-gradient(145deg, #020617, #020617);
+      background: #020617;
       border-radius: 22px;
-      padding: 35px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.55);
+      padding: 30px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.6);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .card:hover {
-      transform: translateY(-12px);
-      box-shadow: 0 30px 80px rgba(0,0,0,0.75);
+      transform: translateY(-10px);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.8);
     }
 
     .card img {
       width: 100%;
-      border-radius: 16px;
-      margin-bottom: 22px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 14px;
+      margin-bottom: 18px;
     }
 
     .card h3 {
@@ -142,228 +147,177 @@
       color: #cbd5f5;
     }
 
+    /* PRODUCTS */
+    .products {
+      max-width: 1100px;
+      margin: 0 auto 120px;
+      text-align: center;
+    }
+
+    .products h2 {
+      font-size: 36px;
+      margin-bottom: 40px;
+      color: #e0e7ff;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+    }
+
+    .product-card {
+      background: white;
+      color: #020617;
+      padding: 35px;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .price {
+      display: block;
+      margin-top: 15px;
+      font-size: 28px;
+      font-weight: 800;
+      color: #4338ca;
+    }
+
+    /* CTA */
+    .cta {
+      margin: 0 auto 120px;
+      padding: 60px 40px;
+      max-width: 900px;
+      text-align: center;
+      background: linear-gradient(135deg, #4338ca, #6366f1);
+      border-radius: 22px;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.35);
+    }
+
+    .cta h2 {
+      color: #ffffff;
+      font-size: 36px;
+      margin-bottom: 15px;
+    }
+
+    .cta p {
+      color: #e0e7ff;
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    .cta button {
+      background: #ffffff;
+      color: #4338ca;
+      border: none;
+      padding: 16px 36px;
+      font-size: 18px;
+      font-weight: 600;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .cta button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+    }
+
     footer {
       text-align: center;
       padding: 40px;
       font-size: 14px;
-      background: #020617;
       color: #94a3b8;
     }
-    .card img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 14px;
-  margin-bottom: 18px;
-}
-    .hero {
-  min-height: 90vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: radial-gradient(circle at top, #1e3a8a, #020617);
-  text-align: center;
-  padding: 40px;
-}
-
-.hero h1 {
-  font-size: 56px;
-  font-weight: 700;
-  line-height: 1.1;
-  margin-bottom: 20px;
-  color: #e0e7ff;
-}
-
-.hero p {
-  font-size: 20px;
-  max-width: 650px;
-  margin: 0 auto 35px;
-  color: #c7d2fe;
-}
-
-.cta-btn {
-  display: inline-block;
-  padding: 16px 36px;
-  font-size: 18px;
-  font-weight: 600;
-  color: #020617;
-  background: linear-gradient(135deg, #38bdf8, #818cf8);
-  border-radius: 999px;
-  text-decoration: none;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.cta-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 20px 40px rgba(56,189,248,0.4);
-}
-    .cta {
-  margin: 80px auto;
-  padding: 60px 40px;
-  max-width: 900px;
-  text-align: center;
-  background: linear-gradient(135deg, #4338ca, #6366f1);
-  border-radius: 22px;
-  box-shadow: 0 30px 60px rgba(0,0,0,0.35);
-}
-
-.cta h2 {
-  color: #ffffff;
-  font-size: 36px;
-  margin-bottom: 15px;
-}
-
-.cta p {
-  color: #e0e7ff;
-  font-size: 18px;
-  margin-bottom: 30px;
-}
-
-.cta button {
-  background: #ffffff;
-  color: #4338ca;
-  border: none;
-  padding: 16px 36px;
-  font-size: 18px;
-  font-weight: 600;
-  border-radius: 999px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.cta button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 15px 30px rgba(0,0,0,0.3);
-}
-.products {
-  margin: 80px auto;
-  max-width: 1100px;
-  text-align: center;
-}
-
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 30px;
-}
-
-.product-card {
-  background: white;
-  padding: 30px;
-  border-radius: 20px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-  transition: transform 0.3s ease;
-}
-
-.product-card:hover {
-  transform: translateY(-6px);
-}
-
-.price {
-  display: block;
-  margin-top: 15px;
-  font-size: 26px;
-  font-weight: 700;
-  color: #4338ca;
-}
-      .navbar {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background: rgba(255,255,255,0.9);
-  backdrop-filter: blur(10px);
-  display: flex;
-  justify-content: space-between;
-  padding: 20px 40px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-}
-
-.navbar ul {
-  list-style: none;
-  display: flex;
-  gap: 30px;
-}
-
-.navbar a {
-  text-decoration: none;
-  font-weight: 600;
-  color: #111;
-}
-
-.navbar a:hover {
-  color: #4338ca;
-}
-
   </style>
 </head>
 
 <body>
 
+<nav class="navbar">
+  <div class="logo">FitnessAI</div>
+  <ul>
+    <li><a href="#features">Features</a></li>
+    <li><a href="#products">Products</a></li>
+    <li><a href="#chat">AI Assistant</a></li>
+  </ul>
+</nav>
+
 <header class="hero">
-  <div class="hero-content">
+  <div>
     <h1>Train Smarter.<br>Build Real Strength.</h1>
     <p>Premium fitness equipment for home and gym training. Fast delivery. Proven quality.</p>
     <a href="#features" class="cta-btn">Explore Equipment</a>
   </div>
 </header>
 
-
 <main>
- <section class="features">
-   <section class="products">
-  <h2>Popular Products</h2>
 
-  <div class="product-grid">
-    <div class="product-card">
-      <h3>Beginner Dumbbell Set</h3>
-      <p>Perfect for home workouts</p>
-      <span class="price">$49</span>
+  <section id="features" class="features">
+    <div class="card">
+      <img src="fitness.jpg" alt="Strength Training">
+      <h3>💪 Strength Training</h3>
+      <p>Professional dumbbells and adjustable sets for progressive muscle growth.</p>
     </div>
 
-    <div class="product-card">
-      <h3>Adjustable Dumbbells</h3>
-      <p>Grow with your strength</p>
-      <span class="price">$89</span>
+    <div class="card">
+      <img src="homeworkout.jpg" alt="Home Workouts">
+      <h3>🏠 Home Workouts</h3>
+      <p>Train efficiently at home with compact, space-saving equipment.</p>
     </div>
 
-    <div class="product-card">
-      <h3>Advanced Weight Set</h3>
-      <p>For serious lifters</p>
-      <span class="price">$149</span>
+    <div class="card">
+      <img src="fitnessequipment.jpg" alt="Fast Delivery">
+      <h3>🚚 Fast Delivery</h3>
+      <p>2–4 business days delivery with secure tracking on every order.</p>
     </div>
-  </div>
-</section>
+  </section>
 
-  <div class="card fade-in fade-delay-1">
-    <img src="fitness.jpg" alt="Strength Training">
-    <h3>💪 Strength Training</h3>
-    <p>Professional dumbbells and adjustable sets for progressive muscle growth.</p>
-  </div>
+  <section id="products" class="products">
+    <h2>Popular Products</h2>
 
-  <div class="card fade-in fade-delay-2">
-    <img src="homeworkout.jpg" alt="Home Workouts">
-    <h3>🏠 Home Workouts</h3>
-    <p>Train efficiently at home with compact, space-saving equipment.</p>
-  </div>
+    <div class="product-grid">
+      <div class="product-card">
+        <h3>Beginner Dumbbell Set</h3>
+        <p>Perfect for home workouts</p>
+        <span class="price">$49</span>
+      </div>
 
-  <div class="card fade-in fade-delay-3">
-    <img src="fitnessequipment.jpg" alt="Fast Delivery">
-    <h3>🚚 Fast Delivery</h3>
-    <p>2–4 business days delivery with secure tracking on every order.</p>
-  </div>
+      <div class="product-card">
+        <h3>Adjustable Dumbbells</h3>
+        <p>Grow with your strength</p>
+        <span class="price">$89</span>
+      </div>
 
-</section>
+      <div class="product-card">
+        <h3>Advanced Weight Set</h3>
+        <p>For serious lifters</p>
+        <span class="price">$149</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2>Ready to start training smarter?</h2>
+    <p>Let our AI assistant help you choose the perfect equipment.</p>
+    <button onclick="scrollToChat()">Talk to the AI Assistant</button>
+  </section>
+
 </main>
 
 <footer>
   © 2026 Fitness Equipment Store • Built with AI
 </footer>
+
 <script>
   function scrollToChat() {
-    document.querySelector('#tidio-chat').scrollIntoView({
-      behavior: 'smooth'
-    });
+    alert("Chatbot will be added here next 🔥");
   }
 </script>
+
 </body>
 </html>
