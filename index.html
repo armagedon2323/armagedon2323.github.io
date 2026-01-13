@@ -14,7 +14,9 @@
   padding: 0;
   font-family: 'Inter', sans-serif;
 }
-
+iframe[src*="tidio"] {
+  pointer-events: none !important;
+}
 body {
   background: #020617;
   color: #e5e7eb;
@@ -281,32 +283,27 @@ footer {
 </div>
 
 <script>
-function openChat() {
-  if (window.tidioChatApi) {
-    window.tidioChatApi.open();
-  }
-}
-
-document.getElementById("ai-bot-launcher").addEventListener("click", function () {
-  if (window.tidioChatApi) {
-    window.tidioChatApi.open();
-  }
-});
-
 window.tidioChatApi = window.tidioChatApi || {};
-window.tidioChatApi.on = window.tidioChatApi.on || function() {
+window.tidioChatApi.on = window.tidioChatApi.on || function () {
   (window.tidioChatApi.q = window.tidioChatApi.q || []).push(arguments);
 };
 
 window.tidioChatApi.on("ready", function () {
-  console.log("Tidio is ready");
+  console.log("✅ Tidio ready");
 });
-</script>
+
+function openChat() {
+  if (window.tidioChatApi && window.tidioChatApi.open) {
+    window.tidioChatApi.open();
   }
 }
 
-document.getElementById("ai-bot-launcher").addEventListener("click", openChat);
+document.addEventListener("DOMContentLoaded", function () {
+  var launcher = document.getElementById("ai-bot-launcher");
+  if (launcher) {
+    launcher.addEventListener("click", openChat);
+  }
+});
 </script>
-
 </body>
 </html>
