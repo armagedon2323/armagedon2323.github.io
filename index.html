@@ -218,6 +218,17 @@ body.tidio-open iframe[src*="tidio"] {
   pointer-events: auto !important;
 }
 
+/* 🔥 HIDE TIDIO DEFAULT BUBBLE COMPLETELY */
+#tidio-chat-iframe,
+iframe[src*="tidio"] {
+  pointer-events: none !important;
+}
+
+/* When chat is open – allow interaction */
+body.tidio-open iframe[src*="tidio"] {
+  pointer-events: auto !important;
+}
+
 /* Safety – hide all default buttons */
 #tidio-chat-button,
 .tidio-chat-button,
@@ -311,14 +322,6 @@ window.tidioChatApi.on("ready", function () {
   console.log("✅ Tidio ready");
 });
 
-window.tidioChatApi.on("open", function () {
-  document.body.classList.add("tidio-open");
-});
-
-window.tidioChatApi.on("close", function () {
-  document.body.classList.remove("tidio-open");
-});
-
 function openChat() {
   if (window.tidioChatApi && window.tidioChatApi.open) {
     window.tidioChatApi.open();
@@ -326,7 +329,7 @@ function openChat() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  var launcher = document.getElementById("ai-bot-launcher");
+  const launcher = document.getElementById("ai-bot-launcher");
   if (launcher) {
     launcher.addEventListener("click", openChat);
   }
