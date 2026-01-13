@@ -142,22 +142,60 @@
   border-radius: 14px;
   margin-bottom: 18px;
 }
+    .hero {
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at top, #1e3a8a, #020617);
+  text-align: center;
+  padding: 40px;
+}
+
+.hero h1 {
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  color: #e0e7ff;
+}
+
+.hero p {
+  font-size: 20px;
+  max-width: 650px;
+  margin: 0 auto 35px;
+  color: #c7d2fe;
+}
+
+.cta-btn {
+  display: inline-block;
+  padding: 16px 36px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #020617;
+  background: linear-gradient(135deg, #38bdf8, #818cf8);
+  border-radius: 999px;
+  text-decoration: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.cta-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 40px rgba(56,189,248,0.4);
+}
   </style>
 </head>
 
 <body>
 
-<header>
-  <div>
-    <h1>Train Smarter. Get Stronger.</h1>
+<header class="hero">
+  <div class="hero-content">
+    <h1>Train Smarter.<br>Build Real Strength.</h1>
     <p>Premium fitness equipment for home and gym training. Fast delivery. Proven quality.</p>
-
-    <div class="cta">
-      <button class="btn btn-primary">Shop Now</button>
-      <button class="btn btn-outline">Chat with AI</button>
-    </div>
+    <a href="#features" class="cta-btn">Explore Equipment</a>
   </div>
 </header>
+
 
 <main>
  <section class="features">
