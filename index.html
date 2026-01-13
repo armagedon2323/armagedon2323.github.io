@@ -168,9 +168,6 @@ footer {
   color: #94a3b8;
 }
 
-/* HIDE TIDIO ICON */
-#tidio-chat iframe {
-  display: none !important;
 }
 
 /* CUSTOM BOT BUTTON */
@@ -286,6 +283,19 @@ function openChat() {
 
 document.getElementById("ai-bot-launcher").onclick = openChat;
 </script>
-
+<div id="ai-bot-launcher"
+     style="
+       position:fixed;
+       bottom:30px;
+       right:30px;
+       z-index:99999;
+       background:red;
+       color:white;
+       padding:20px;
+       font-size:20px;
+       border-radius:12px;
+     ">
+  BOT TEST
+</div>
 </body>
 </html>
