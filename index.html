@@ -14,9 +14,7 @@
   padding: 0;
   font-family: 'Inter', sans-serif;
 }
-iframe[src*="tidio"] {
-  pointer-events: none !important;
-}
+
 body {
   background: #020617;
   color: #e5e7eb;
@@ -83,6 +81,7 @@ main {
   padding: 100px 8%;
 }
 
+/* FEATURES */
 .features {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -154,15 +153,6 @@ main {
   margin-bottom: 30px;
 }
 
-.cta button {
-  padding: 16px 36px;
-  border-radius: 999px;
-  border: none;
-  font-size: 18px;
-  font-weight: 600;
-  cursor: pointer;
-}
-
 /* FOOTER */
 footer {
   text-align: center;
@@ -170,12 +160,19 @@ footer {
   color: #94a3b8;
 }
 
-/* ❌ HIDE ONLY DEFAULT TIDIO BUTTON */
+/* 🔥 HIDE ALL DEFAULT TIDIO UI */
+#tidio-chat,
+#tidio-chat iframe,
 .tidio-chat-button,
 .tidio-chat-button__bubble,
 .tidio-chat-button__icon,
-.tidio-chat-button__text {
+.tidio-chat-button__text,
+.tidio-chat-button__label,
+.tidio-chat-button__content {
   display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
 }
 
 /* ✅ CUSTOM BOT */
@@ -195,8 +192,8 @@ footer {
 }
 
 #ai-bot-launcher img {
-  width: 64px;   /* НАМАЛЕНО */
-  height: 64px;  /* НАМАЛЕНО */
+  width: 54px;
+  height: 54px;
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid #6366f1;
@@ -206,36 +203,6 @@ footer {
   font-size: 15px;
   font-weight: 600;
   color: #111;
-}
-  /* 🔥 HIDE TIDIO DEFAULT BUBBLE COMPLETELY */
-#tidio-chat-iframe,
-iframe[src*="tidio"] {
-  pointer-events: none !important;
-}
-
-/* When chat is open – allow interaction */
-body.tidio-open iframe[src*="tidio"] {
-  pointer-events: auto !important;
-}
-
-/* 🔥 HIDE TIDIO DEFAULT BUBBLE COMPLETELY */
-#tidio-chat-iframe,
-iframe[src*="tidio"] {
-  pointer-events: none !important;
-}
-
-/* When chat is open – allow interaction */
-body.tidio-open iframe[src*="tidio"] {
-  pointer-events: auto !important;
-}
-
-/* Safety – hide all default buttons */
-#tidio-chat-button,
-.tidio-chat-button,
-.tidio-chat-button__bubble,
-.tidio-chat-button__icon,
-.tidio-chat-button__text {
-  display: none !important;
 }
 </style>
 </head>
@@ -293,41 +260,32 @@ body.tidio-open iframe[src*="tidio"] {
     </div>
   </div>
 </section>
-<div id="ai-bot-launcher">
-<section class="cta">
-  <h2>Need help?</h2>
-  <p>Chat with our AI fitness assistant</p>
-  <button id="ai-bot-launcher">
-</section>
 </main>
 
 <footer>© 2026 FitnessAI</footer>
 
+<!-- TIDIO -->
+<script src="//code.tidio.co/rr9kewvy8kr8epfs8o87x2sn4fq9ubd0.js" async></script>
+
+<!-- CUSTOM BOT -->
+<div id="ai-bot-launcher">
+  <img src="bot-avatar.png" alt="Anna AI">
+  <span>Aneto – AI Assistant</span>
+</div>
+
 <script>
-(function () {
-
-  function waitForTidio() {
-    if (!window.tidioChatApi || !window.tidioChatApi.open) {
-      return setTimeout(waitForTidio, 300);
-    }
-
-    console.log("TIDIO READY – HANDLER ATTACHED");
-
+document.addEventListener("tidioChat-ready", function () {
+  if (window.tidioChatApi) {
     window.tidioChatApi.hide();
-
-    document.addEventListener("click", function (e) {
-      const launcher = e.target.closest("#ai-bot-launcher");
-      if (!launcher) return;
-
-      console.log("BOT CLICKED");
-
-      window.tidioChatApi.show();
-      window.tidioChatApi.open();
-    });
+    window.tidioChatApi.hideButton();
   }
+});
 
-  waitForTidio();
-})();
+document.getElementById("ai-bot-launcher").addEventListener("click", function () {
+  if (window.tidioChatApi) {
+    window.tidioChatApi.open();
+  }
+});
 </script>
 
 </body>
