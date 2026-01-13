@@ -207,6 +207,25 @@ footer {
   font-weight: 600;
   color: #111;
 }
+  /* 🔥 HIDE TIDIO DEFAULT BUBBLE COMPLETELY */
+#tidio-chat-iframe,
+iframe[src*="tidio"] {
+  pointer-events: none !important;
+}
+
+/* When chat is open – allow interaction */
+body.tidio-open iframe[src*="tidio"] {
+  pointer-events: auto !important;
+}
+
+/* Safety – hide all default buttons */
+#tidio-chat-button,
+.tidio-chat-button,
+.tidio-chat-button__bubble,
+.tidio-chat-button__icon,
+.tidio-chat-button__text {
+  display: none !important;
+}
 </style>
 </head>
 
@@ -290,6 +309,14 @@ window.tidioChatApi.on = window.tidioChatApi.on || function () {
 
 window.tidioChatApi.on("ready", function () {
   console.log("✅ Tidio ready");
+});
+
+window.tidioChatApi.on("open", function () {
+  document.body.classList.add("tidio-open");
+});
+
+window.tidioChatApi.on("close", function () {
+  document.body.classList.remove("tidio-open");
 });
 
 function openChat() {
