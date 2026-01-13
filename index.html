@@ -293,7 +293,7 @@ body.tidio-open iframe[src*="tidio"] {
     </div>
   </div>
 </section>
-
+<div id="ai-bot-launcher">
 <section class="cta">
   <h2>Need help?</h2>
   <p>Chat with our AI fitness assistant</p>
@@ -304,32 +304,30 @@ body.tidio-open iframe[src*="tidio"] {
 <footer>© 2026 FitnessAI</footer>
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
+(function () {
 
-  function waitForTidio(callback) {
-    if (window.tidioChatApi && window.tidioChatApi.open) {
-      callback();
-    } else {
-      setTimeout(() => waitForTidio(callback), 300);
+  function waitForTidio() {
+    if (!window.tidioChatApi || !window.tidioChatApi.open) {
+      return setTimeout(waitForTidio, 300);
     }
-  }
 
-  waitForTidio(function () {
-    console.log("Tidio ready");
+    console.log("TIDIO READY – HANDLER ATTACHED");
 
-    // 🔥 disable default launcher
     window.tidioChatApi.hide();
 
-    // ✅ open chat on click
-    document
-      .getElementById("ai-bot-launcher")
-      .addEventListener("click", function () {
-        window.tidioChatApi.show();
-        window.tidioChatApi.open();
-      });
-  });
+    document.addEventListener("click", function (e) {
+      const launcher = e.target.closest("#ai-bot-launcher");
+      if (!launcher) return;
 
-});
+      console.log("BOT CLICKED");
+
+      window.tidioChatApi.show();
+      window.tidioChatApi.open();
+    });
+  }
+
+  waitForTidio();
+})();
 </script>
 
 </body>
