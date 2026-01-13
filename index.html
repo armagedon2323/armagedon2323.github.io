@@ -99,9 +99,9 @@
       gap: 35px;
     }
 <section class="cta">
-  <h2>Ready to upgrade your training?</h2>
-  <p>Get expert recommendations and order the right equipment in minutes.</p>
-  <button>Chat with our AI Assistant</button>
+  <h2>Ready to start training smarter?</h2>
+  <p>Let our AI assistant help you choose the perfect equipment.</p>
+  <button onclick="scrollToChat()">Talk to the AI Assistant</button>
 </section>
 
     .card {
@@ -268,6 +268,12 @@
 <footer>
   © 2026 Fitness Equipment Store • Built with AI
 </footer>
-
+<script>
+  function scrollToChat() {
+    document.querySelector('#tidio-chat').scrollIntoView({
+      behavior: 'smooth'
+    });
+  }
+</script>
 </body>
 </html>
