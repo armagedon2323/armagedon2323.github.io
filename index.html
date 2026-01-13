@@ -81,7 +81,6 @@ main {
   padding: 100px 8%;
 }
 
-/* FEATURES */
 .features {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -153,6 +152,15 @@ main {
   margin-bottom: 30px;
 }
 
+.cta button {
+  padding: 16px 36px;
+  border-radius: 999px;
+  border: none;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
 /* FOOTER */
 footer {
   text-align: center;
@@ -160,19 +168,12 @@ footer {
   color: #94a3b8;
 }
 
-/* 🔥 HIDE ALL DEFAULT TIDIO UI */
-#tidio-chat,
-#tidio-chat iframe,
+/* ❌ HIDE ONLY DEFAULT TIDIO BUTTON */
 .tidio-chat-button,
 .tidio-chat-button__bubble,
 .tidio-chat-button__icon,
-.tidio-chat-button__text,
-.tidio-chat-button__label,
-.tidio-chat-button__content {
+.tidio-chat-button__text {
   display: none !important;
-  visibility: hidden !important;
-  opacity: 0 !important;
-  pointer-events: none !important;
 }
 
 /* ✅ CUSTOM BOT */
@@ -192,8 +193,8 @@ footer {
 }
 
 #ai-bot-launcher img {
-  width: 54px;
-  height: 54px;
+  width: 64px;   /* НАМАЛЕНО */
+  height: 64px;  /* НАМАЛЕНО */
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid #6366f1;
@@ -260,6 +261,12 @@ footer {
     </div>
   </div>
 </section>
+
+<section class="cta">
+  <h2>Need help?</h2>
+  <p>Chat with our AI fitness assistant</p>
+  <button onclick="openChat()">Talk to AI</button>
+</section>
 </main>
 
 <footer>© 2026 FitnessAI</footer>
@@ -270,22 +277,17 @@ footer {
 <!-- CUSTOM BOT -->
 <div id="ai-bot-launcher">
   <img src="bot-avatar.png" alt="Anna AI">
-  <span>Aneto – AI Assistant</span>
+  <span>Anna – AI Assistant</span>
 </div>
 
 <script>
-document.addEventListener("tidioChat-ready", function () {
-  if (window.tidioChatApi) {
-    window.tidioChatApi.hide();
-    window.tidioChatApi.hideButton();
-  }
-});
-
-document.getElementById("ai-bot-launcher").addEventListener("click", function () {
+function openChat() {
   if (window.tidioChatApi) {
     window.tidioChatApi.open();
   }
-});
+}
+
+document.getElementById("ai-bot-launcher").addEventListener("click", openChat);
 </script>
 
 </body>
