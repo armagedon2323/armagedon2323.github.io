@@ -304,7 +304,8 @@
   <section class="cta">
     <h2>Ready to start training smarter?</h2>
     <p>Let our AI assistant help you choose the perfect equipment.</p>
-    <button onclick="scrollToChat()">Talk to the AI Assistant</button>
+    <button onclick="openChat()">Talk to the AI Assistant</button>
+
   </section>
 
 </main>
@@ -312,7 +313,15 @@
 <footer>
   © 2026 Fitness Equipment Store • Built with AI
 </footer>
-
+<script>
+  function openChat() {
+    if (window.tidioChatApi) {
+      window.tidioChatApi.open();
+    } else {
+      alert("Chat is loading, please try again in a moment.");
+    }
+  }
+</script>
 <script>
   function scrollToChat() {
     alert("Chatbot will be added here next 🔥");
