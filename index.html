@@ -287,6 +287,24 @@ function openChat() {
   }
 }
 
+document.getElementById("ai-bot-launcher").addEventListener("click", function () {
+  if (window.tidioChatApi) {
+    window.tidioChatApi.open();
+  }
+});
+
+window.tidioChatApi = window.tidioChatApi || {};
+window.tidioChatApi.on = window.tidioChatApi.on || function() {
+  (window.tidioChatApi.q = window.tidioChatApi.q || []).push(arguments);
+};
+
+window.tidioChatApi.on("ready", function () {
+  console.log("Tidio is ready");
+});
+</script>
+  }
+}
+
 document.getElementById("ai-bot-launcher").addEventListener("click", openChat);
 </script>
 
