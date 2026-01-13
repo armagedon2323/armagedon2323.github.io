@@ -168,21 +168,24 @@ footer {
   color: #94a3b8;
 }
 
-/* HIDE TIDIO ICON */
-#tidio-chat iframe {
+/* ❌ HIDE ONLY DEFAULT TIDIO BUTTON */
+.tidio-chat-button,
+.tidio-chat-button__bubble,
+.tidio-chat-button__icon,
+.tidio-chat-button__text {
   display: none !important;
 }
 
-/* CUSTOM BOT BUTTON */
+/* ✅ CUSTOM BOT */
 #ai-bot-launcher {
   position: fixed;
   bottom: 30px;
   right: 30px;
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
   background: white;
-  padding: 14px 18px;
+  padding: 12px 16px;
   border-radius: 999px;
   box-shadow: 0 20px 40px rgba(0,0,0,0.3);
   cursor: pointer;
@@ -190,15 +193,15 @@ footer {
 }
 
 #ai-bot-launcher img {
-  width: 80px;
-  height: 80px;
+  width: 64px;   /* НАМАЛЕНО */
+  height: 64px;  /* НАМАЛЕНО */
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid #6366f1;
 }
 
 #ai-bot-launcher span {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 600;
   color: #111;
 }
@@ -273,8 +276,8 @@ footer {
 
 <!-- CUSTOM BOT -->
 <div id="ai-bot-launcher">
-  <img src="bot-avatar.png">
-  <span>Aneto – AI Assistant</span>
+  <img src="bot-avatar.png" alt="Anna AI">
+  <span>Anna – AI Assistant</span>
 </div>
 
 <script>
@@ -284,7 +287,7 @@ function openChat() {
   }
 }
 
-document.getElementById("ai-bot-launcher").onclick = openChat;
+document.getElementById("ai-bot-launcher").addEventListener("click", openChat);
 </script>
 
 </body>
