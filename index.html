@@ -191,6 +191,14 @@ footer {
   cursor: pointer;
   z-index: 9999;
 
+  #ai-bot-launcher img {
+  width: 64px;   /* беше 80 */
+  height: 64px;  /* беше 80 */
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #6366f1;
+}
+  
 {  /* 🔥 COMPLETELY HIDE TIDIO DEFAULT LAUNCHER */
 #tidio-chat-button,
 .tidio-chat-button,
@@ -304,6 +312,11 @@ function openChat() {
 
 document.getElementById("ai-bot-launcher").addEventListener("click", openChat);
 </script>
-
+<script>
+window.tidioChatApi = window.tidioChatApi || {};
+window.tidioChatApi.on = window.tidioChatApi.on || function() {
+  (window.tidioChatApi.q = window.tidioChatApi.q || []).push(arguments);
+};
+</script>
 </body>
 </html>
