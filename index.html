@@ -72,6 +72,105 @@ body {
 .hero p {
   font-size: 20px;
   color: #c7d2fe;
+  max-width: 600px;
+  margin: auto;
+}
+
+/* MAIN */
+main {
+  padding: 100px 8%;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 35px;
+  margin-bottom: 120px;
+}
+
+.card {
+  background: #020617;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 14px;
+  margin-bottom: 15px;
+}
+
+.card h3 {
+  color: #a5b4fc;
+  margin-bottom: 10px;
+}
+
+/* PRODUCTS */
+.products {
+  text-align: center;
+  margin-bottom: 120px;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+}
+
+.product-card {
+  background: white;
+  color: #020617;
+  padding: 30px;
+  border-radius: 20px;
+}
+
+.price {
+  font-size: 26px;
+  font-weight: 800;
+  color: #4338ca;
+}
+
+/* CTA */
+.cta {
+  background: linear-gradient(135deg, #4338ca, #6366f1);
+  padding: 60px 40px;
+  text-align: center;
+  border-radius: 22px;
+}
+
+.cta h2 {
+  color: white;
+  font-size: 36px;
+  margin-bottom: 15px;
+}
+
+.cta p {
+  color: #e0e7ff;
+  margin-bottom: 30px;
+}
+
+.cta button {
+  padding: 16px 36px;
+  border-radius: 999px;
+  border: none;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 40px;
+  color: #94a3b8;
+}
+
+/* HIDE TIDIO ICON */
+#tidio-chat iframe {
+  display: none !important;
 }
 
 /* CUSTOM BOT BUTTON */
@@ -81,25 +180,25 @@ body {
   right: 30px;
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
   background: white;
-  padding: 12px 18px;
+  padding: 14px 18px;
   border-radius: 999px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
   cursor: pointer;
   z-index: 9999;
 }
 
 #ai-bot-launcher img {
-  width: 54px;
-  height: 54px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid #6366f1;
 }
 
 #ai-bot-launcher span {
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 600;
   color: #111;
 }
@@ -123,48 +222,70 @@ body {
   </div>
 </header>
 
-<footer style="text-align:center;padding:40px;color:#94a3b8;">
-© 2026 FitnessAI
-</footer>
+<main>
+<section id="features" class="features">
+  <div class="card">
+    <img src="fitness.jpg">
+    <h3>Strength Training</h3>
+    <p>Professional equipment</p>
+  </div>
+  <div class="card">
+    <img src="homeworkout.jpg">
+    <h3>Home Workouts</h3>
+    <p>Compact & effective</p>
+  </div>
+  <div class="card">
+    <img src="fitnessequipment.jpg">
+    <h3>Fast Delivery</h3>
+    <p>2–4 business days</p>
+  </div>
+</section>
+
+<section id="products" class="products">
+  <h2>Popular Products</h2>
+  <div class="product-grid">
+    <div class="product-card">
+      Beginner Dumbbells
+      <span class="price">$49</span>
+    </div>
+    <div class="product-card">
+      Adjustable Dumbbells
+      <span class="price">$89</span>
+    </div>
+    <div class="product-card">
+      Advanced Set
+      <span class="price">$149</span>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <h2>Need help?</h2>
+  <p>Chat with our AI fitness assistant</p>
+  <button onclick="openChat()">Talk to AI</button>
+</section>
+</main>
+
+<footer>© 2026 FitnessAI</footer>
 
 <!-- TIDIO -->
-<script src="//code.tidio.co/rr9kewvy8kr8epfs8o87x2sn4fq9ubd0.js"></script>
+<script src="//code.tidio.co/rr9kewvy8kr8epfs8o87x2sn4fq9ubd0.js" async></script>
 
 <!-- CUSTOM BOT -->
 <div id="ai-bot-launcher">
-  <img src="bot-avatar.png" alt="Anna AI">
-  <span>Aneto – AI Assistant</span>
+  <img src="bot-avatar.png">
+  <span>Anna – AI Assistant</span>
 </div>
 
 <script>
-(function waitForTidio() {
+function openChat() {
   if (window.tidioChatApi) {
-    window.tidioChatApi.on("ready", function () {
-      window.tidioChatApi.hideButton(); // hide default bubble
-    });
-
-    document.getElementById("ai-bot-launcher")
-      .addEventListener("click", function () {
-        window.tidioChatApi.open();
-      });
-  } else {
-    setTimeout(waitForTidio, 100);
+    window.tidioChatApi.open();
   }
-})();
+}
+
+document.getElementById("ai-bot-launcher").onclick = openChat;
 </script>
-<div id="ai-bot-launcher"
-     style="
-       position:fixed;
-       bottom:30px;
-       right:30px;
-       z-index:99999;
-       background:red;
-       color:white;
-       padding:20px;
-       font-size:20px;
-       border-radius:12px;
-     ">
-  BOT TEST
-</div>
+
 </body>
 </html>
